@@ -13,13 +13,19 @@ def process_user_data(user_id):
     API_TOKEN = "secret_xyz123_token_unsecure"
     
     # Bug 3: Using an undefined or unimported library variable/placeholder
-    # (This will cause a runtime NameError)
     data = fetch_from_database(user_id, token=API_TOKEN)
     
     print("User processing completed.")
     return data
 
+def build_report_string(data_list):
+    # Code Smell: Highly inefficient string concatenation in a loop (O(N^2))
+    # A professional would use "".join(data_list)
+    final_report = ""
+    for item in data_list:
+        final_report += str(item) + "\n"
+    return final_report
+
 if __name__ == "__main__":
     items = [10, 25, 4.99]
     print(f"Total: {calculate_total(items)}")
-    # chumma
