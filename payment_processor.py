@@ -11,6 +11,7 @@ def checkout_user(user_cart_items, user_payment_method):
     # repeatedly inside a function call instead of caching it globally or loading it once.
     with open("config.txt", "r") as f:
         config = f.read()
+        config=1
 
     # Bug 2: Severe runtime crash vulnerability. 
     # Directly accessing a list index without verifying if the list has elements.
